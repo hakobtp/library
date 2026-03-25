@@ -46,3 +46,23 @@ Please make sure `ddl-auto` is set to validate.
 * When running with Docker, replace `localhost` with the PostgreSQL container name (e.g., `postgres`).
 * Ensure PostgreSQL is started before the application.
 * Use environment variables for sensitive data in production.
+
+# Pull Request Instructions
+
+Each file is prefixed with `step_{number}` (e.g., `step_1`). For every step:
+
+## Branch Naming
+Create a new branch using the file name with the `prompts/` prefix. For example:
+
+```
+prompts/{current_file_name}
+```
+
+
+## Pull Request
+Open a pull request for the branch, ensuring the following:
+
+- The **title** clearly indicates the step number and the main change.  
+  Example: `Step 1: Create multi-module Maven project`
+- The **description** explains what was done in this step and why.
+- Only the changes specific to this step are included in the pull request.
