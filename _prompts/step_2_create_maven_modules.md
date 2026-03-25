@@ -72,15 +72,24 @@ The project must be structured as a multi-module Maven project with the followin
 ```
 com.library.user
 ├── domain
-│   ├── model
-│   ├── service
+│   ├── models         --> Core business objects (User, UserProfile, etc.).
+│   ├── services       --> Business logic / orchestration. Operates on domain models, enforces rules, returns service-layer objects or DTOs.
+│   ├── mappers        --> Converts persistence entities → service-layer objects. Example: UserMapper converts UserEntity → User.
+│   ├── exceptions     --> Domain-specific exceptions (e.g., UserAlreadyExistsException).
+│   └── validators     --> Business rules validations (optional).
 │
 ├── facade
-│   ├── dto
+│   ├── dtos           --> DTOs for external consumption (used by API module). Example: UserResponseDto, UserCreateRequestDto.
+│   ├── mappers        --> Converts service-layer objects → facade DTOs.
 │
 ├── infrastructure
-│   ├── persistence
-│   ├── config
+│   └── persistence
+│       ├── entities      --> JPA/Hibernate entities (UserEntity, UserProfileEntity, etc.).
+│       ├── repositories  --> Repository interfaces (e.g., UserRepository).
+│       └── impl          --> Custom repository implementations if needed.
+│   ├── cache             --> Optional: caching mechanisms.
+│   ├── messaging         --> Optional: event producers/consumers.
+│   └── external          --> Optional: integration with external systems.
 ```
 
 ---
@@ -89,9 +98,17 @@ com.library.user
 
 ```
 com.library.api
-├── controller
-├── dto
-├── mapper
+├── controller   --> Contains REST controllers that handle HTTP requests and responses.
+                  These classes call the appropriate services in the domain modules
+                  or the application module to process requests.
+
+├── dto          --> Contains Data Transfer Objects (DTOs) specifically for API communication.
+                  These are often slightly different from domain DTOs, tailored for request
+                  payloads or response formats. Example: UserResponseDto, UserCreateRequestDto.
+
+├── mapper       --> Contains classes or interfaces that convert between domain objects
+                  (or domain DTOs) and API DTOs. For example, mapping User entity to
+                  UserResponseDto or vice versa.
 ```
 
 ---
@@ -100,8 +117,14 @@ com.library.api
 
 ```
 com.library.application
-├── config
-├── bootstrap
+├── config      --> Contains global or module-level Spring configuration classes.
+                 Examples: security configuration, bean definitions, or shared module settings.
+                 This is where you configure anything that other modules or the application 
+                 itself may need at runtime.
+
+├── bootstrap   --> Contains the main entry point of the application (the class with the main method)
+                 and any classes that are responsible for starting up the Spring Boot application.
+                 It orchestrates initialization but does not contain domain logic.
 ```
 
 ---
@@ -110,9 +133,16 @@ com.library.application
 
 ```
 com.library.common
-├── exception
-├── util
-├── config
+├── exception   --> Contains shared exception classes used across multiple modules.
+                 Examples: CustomNotFoundException, InvalidInputException.
+                 Helps standardize error handling across the project.
+
+├── util        --> Contains utility or helper classes used by multiple modules.
+                 Examples: DateUtils, StringUtils, ValidationUtils.
+                 Should be framework-agnostic and contain no business logic.
+
+├── config      --> Contains shared configuration classes that can be reused across modules.
+                 Examples: common bean definitions, property loaders, shared converters.
 ```
 
 ---

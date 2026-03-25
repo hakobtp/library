@@ -13,17 +13,17 @@
 
 ### Domain Modules (`book`, `author`, `user`)
 
-* Only the `facade` package must be exposed to other modules.
-* The `domain` and `infrastructure` packages must remain internal.
-* The `facade` package must have access to both `domain` and `infrastructure`.
+- Only the `facade` package is exposed to other modules.
+- All other packages remain internal.
 
 ---
 
 ### API Module
 
-* The `api` module must be fully encapsulated.
-* Other modules must not depend on or use code from the `api` module.
-* Inside the `api` module, the `controller` package can access other internal packages (e.g., `dto`, `mapper`).
+- The `API` module is fully encapsulated.
+- Other modules must not depend on or use code from the `API` module.
+- The `API` module has access to the facades of the `book`, `author`, and `user` modules.
+- Within the `API` module, the controller package can access other internal packages (e.g., `dto`, `mapper`).
 
 ---
 
