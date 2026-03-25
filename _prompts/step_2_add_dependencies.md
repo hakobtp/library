@@ -1,4 +1,4 @@
-# dependencies
+# Dependencies
 
 1) Add a `.gitignore` file for a Java project, VS Code, and IntelliJ IDEA. 
 2) Add Spring Boot dependencies for building a REST API, PostgreSQL, Hibernate, and Lombok.
