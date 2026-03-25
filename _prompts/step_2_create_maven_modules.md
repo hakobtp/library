@@ -9,6 +9,8 @@ The project must be structured as a multi-module Maven project with the followin
 * author
 * book
 
+> Note: Do not create any classes until I explicitly ask.
+
 ---
 
 ## Parent POM Configuration
@@ -123,6 +125,11 @@ com.library.common
 * Prefer clear boundaries over convenience
 * Design for scalability and maintainability
 
+
+## Create Main Class
+
+Under `com.library.application.bootstrap`, create a class that scans the 
+main package and runs the Spring Boot application. This class must contain the `main` method.
 
 # Pull Request Instructions
 

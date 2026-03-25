@@ -39,7 +39,7 @@
 
 Create an `application.yml` file inside the `application` module and configure the database connection.
 
-Please make sure `ddl-auto` is set to validate.
+Please make sure `ddl-auto` is set to `validate`.
 
 ## Notes
 
