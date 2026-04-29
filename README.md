@@ -8,7 +8,7 @@ The project was created from scratch using `Claude Code`. To continue developmen
 provide `Claude Code` with the following prompt:
 
 ```
-Please go to the prompts folder, read the files in order, and check their content. If something has not been executed, execute it.
+Please go to the _prompts folder, read the files in order, and check their content. If something has not been executed, execute it.
 ```
 
 The AI agent will process the steps sequentially and execute only the steps that have not yet been completed.
