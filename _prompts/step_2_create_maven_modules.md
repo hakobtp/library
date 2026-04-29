@@ -9,7 +9,7 @@ The project must be structured as a multi-module Maven project with the followin
 * author
 * book
 
-> Note: Do not create any classes until I explicitly ask.
+> Note: Do not create any classes unless I explicitly request them. Only create package structures.
 
 ---
 
