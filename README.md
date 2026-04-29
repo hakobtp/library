@@ -1,17 +1,14 @@
 # Project Overview
 
-This project was generated using an AI agent. I did not write any code manually.
+This project was generated using an AI. I did not write any code manually.
 
 All prompts used to generate the project are located in the `_prompts` folder.
 
-The project was created from scratch using `Junie`. To continue development or reproduce the setup,
-provide Junie with the following prompt:
+The project was created from scratch using `Claude Code`. To continue development or reproduce the setup,
+provide `Claude Code` with the following prompt:
 
 ```
-Please go to the prompts folder, 
-read the files in order, and check 
-their content. If something has not 
-been executed, execute it.
+Please go to the prompts folder, read the files in order, and check their content. If something has not been executed, execute it.
 ```
 
 The AI agent will process the steps sequentially and execute only the steps that have not yet been completed.
